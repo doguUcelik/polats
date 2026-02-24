@@ -25,7 +25,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <h1>Frisch. Lecker.<br>Döner.</h1>
+      <h1>Dönerliebe in jedem<br>Biss!</h1>
       <p>Döner, Dürüm, Lahmacun & mehr – in STADT</p>
       <a href="#speisekarte" class="btn">Zur Speisekarte</a>
     </div>
@@ -156,4 +156,22 @@
   </footer>
 
 </body>
+
+
+ <script>
+    // Smooth scroll mit Header-Offset
+    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var id = link.getAttribute('href');
+        var target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        var headerHeight = document.querySelector('header').offsetHeight;
+        window.scrollTo({
+          top: target.offsetTop - headerHeight,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </html>
