@@ -1,0 +1,244 @@
+
+/* ============================================
+   VARIABLEN & RESET
+   ============================================ */
+:root {
+  --orange: #f28c27;
+  --orange-dark: #d97820;
+  --dark: #1a1a1a;
+  --warm-bg: #fdf6ee;
+  --text: #333;
+  --muted: #777;
+  --radius: 6px;
+  --max-width: 960px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: var(--orange); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ============================================
+   LAYOUT HELFER
+   ============================================ */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+header {
+  background: var(--dark);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--orange);
+  white-space: nowrap;
+  margin-right: auto;
+}
+
+nav a {
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+nav a:hover { color: var(--orange); text-decoration: none; }
+
+nav { display: flex; gap: 1.5rem; }
+
+.tel-header {
+  color: var(--orange);
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  background: var(--dark);
+  color: #fff;
+  padding: 6rem 1.5rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius);
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.btn:hover { background: var(--orange-dark); text-decoration: none; }
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--orange);
+  color: var(--orange);
+  margin-bottom: 2rem;
+}
+
+.btn-outline:hover { background: var(--orange); color: #fff; }
+
+/* ============================================
+   SPEISEKARTE
+   ============================================ */
+.menu-category {
+  margin-top: 2.5rem;
+}
+
+.menu-category h3 {
+  font-size: 1.3rem;
+  color: var(--orange);
+  border-bottom: 2px solid var(--orange);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  font-family: Arial, sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+td:not(:first-child), th:not(:first-child) {
+  text-align: right;
+  white-space: nowrap;
+}
+
+tbody tr:hover { background: #fafafa; }
+
+/* ============================================
+   ÖFFNUNGSZEITEN
+   ============================================ */
+.bg-warm { background: var(--warm-bg); }
+
+.hours-table { max-width: 400px; }
+
+.hours-table th {
+  text-align: left;
+  color: var(--text);
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: 0;
+  width: 55%;
+}
+
+.hours-table td { text-align: left; }
+
+/* ============================================
+   KONTAKT
+   ============================================ */
+.kontakt-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.kontakt-info p { margin-bottom: 1rem; }
+.kontakt-info strong { display: block; margin-bottom: 0.25rem; }
+
+.map-placeholder iframe {
+  border-radius: var(--radius);
+  display: block;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  background: var(--dark);
+  color: #aaa;
+  text-align: center;
+  padding: 1.5rem;
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+}
+
+footer a { color: #aaa; }
+footer a:hover { color: var(--orange); }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 700px) {
+  nav { display: none; } /* bei Bedarf Burger-Menü ergänzen */
+
+  .kontakt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-inner { gap: 1rem; }
+}
