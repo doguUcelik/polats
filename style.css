@@ -3,7 +3,7 @@
    ============================================ */
 :root {
   --red: #F5921E;
-  --red-dark: #c95214;
+  --red-dark: #d97d10;
   --dark: #1a1a1a;
   --warm-bg: #f2f2f2;
   --text: #333;
@@ -14,9 +14,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: Georgia, 'Times New Roman', serif;
@@ -65,7 +63,7 @@ header {
   padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .logo {
@@ -75,6 +73,26 @@ header {
   white-space: nowrap;
   margin-right: auto;
 }
+
+.tel-btn {
+  color: var(--red);
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  white-space: nowrap;
+  border: 2px solid var(--red);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius);
+  transition: background 0.2s, color 0.2s;
+}
+
+.tel-btn:hover {
+  background: var(--red);
+  color: #fff;
+  text-decoration: none;
+}
+
+nav { display: flex; gap: 1.5rem; }
 
 nav a {
   color: var(--dark);
@@ -86,32 +104,77 @@ nav a {
 
 nav a:hover { color: var(--red); text-decoration: none; }
 
-nav { display: flex; gap: 1.5rem; }
-
-.tel-header {
-  color: var(--red);
-  font-family: Arial, sans-serif;
-  font-size: 0.9rem;
-  white-space: nowrap;
-}
-
 /* ============================================
-   HERO
+   HERO SLIDER
+   (kein doppeltes .hero mehr – nur einmal hier)
    ============================================ */
 .hero {
-  background: var(--red);
-  color: #fff;
-  padding: 6rem 1.5rem;
-  text-align: center;
+  padding: 0;
+  position: relative;
+  height: 520px;
+  overflow: hidden;
 }
 
-.hero h1 {
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ul/li reset */
+.slides {
+  display: flex;
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.slides li {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* img füllt den li komplett aus */
+.slides li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* dunkler Overlay für Lesbarkeit */
+.slides li::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: #fff;
+}
+
+.hero-content h1 {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   line-height: 1.1;
   margin-bottom: 1rem;
 }
 
-.hero p {
+.hero-content p {
   font-size: 1.1rem;
   color: rgba(255,255,255,0.85);
   margin-bottom: 2rem;
@@ -146,9 +209,7 @@ nav { display: flex; gap: 1.5rem; }
 /* ============================================
    SPEISEKARTE
    ============================================ */
-.menu-category {
-  margin-top: 2.5rem;
-}
+.menu-category { margin-top: 2.5rem; }
 
 .menu-category h3 {
   font-size: 1.3rem;
@@ -158,10 +219,7 @@ nav { display: flex; gap: 1.5rem; }
   margin-bottom: 1rem;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
+table { width: 100%; border-collapse: collapse; }
 
 th, td {
   padding: 0.6rem 0.75rem;
@@ -240,11 +298,11 @@ footer a:hover { color: #fff; }
    RESPONSIVE
    ============================================ */
 @media (max-width: 700px) {
-  nav { display: none; } /* bei Bedarf Burger-Menü ergänzen */
+  nav { display: none; }
 
-  .kontakt-grid {
-    grid-template-columns: 1fr;
-  }
+  .kontakt-grid { grid-template-columns: 1fr; }
+
+  .hero { height: 380px; }
 
   .header-inner { gap: 1rem; }
 }

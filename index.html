@@ -13,21 +13,51 @@
   <header>
     <div class="header-inner">
       <div class="logo">Polats Kebaphaus</div>
+      <a class="tel-btn" href="tel:+496008-9186688">📞 06008 – 918 6688</a>
       <nav>
         <a href="#speisekarte">Speisekarte</a>
         <a href="#oeffnungszeiten">Öffnungszeiten</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
-      <a class="tel-header" href="tel:+496008-9186688">06008 – 918 6688</a>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO SLIDER -->
   <section class="hero">
-    <div class="hero-inner">
-      <h1>Dönerliebe in jedem<br>Biss!</h1>
-      <p>Döner, Dürüm, Lahmacun & mehr – in Echzell</p>
-      <a href="#speisekarte" class="btn">Zur Speisekarte</a>
+    <div class="slider">
+      <ul class="slides">
+        <li><img src="bilder/bild1.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild2.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild3.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild4.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild5.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild6.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild7.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild8.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild9.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild10.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild11.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild12.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild13.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild14.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild15.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild16.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild17.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild18.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild19.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild20.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild21.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild22.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild23.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild24.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild25.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild26.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild27.jpeg" alt="Polats Kebaphaus"></li>
+        <li><img src="bilder/bild28.jpeg" alt="Polats Kebaphaus"></li>
+      </ul>
+      <div class="hero-content">
+        <a href="#speisekarte" class="btn">Zur Speisekarte</a>
+      </div>
     </div>
   </section>
 
@@ -54,14 +84,13 @@
               <td>7,50 €</td>
             </tr>
             <tr>
-              <td>Dürüm (Dönerrole)</td>
+              <td>Dürüm (Dönerrolle)</td>
               <td>8,50 €</td>
             </tr>
             <tr>
-              <td>Lahmacum (gerollte Türkische Pizza)</td>
+              <td>Lahmacun (gerollte Türkische Pizza)</td>
               <td>9,00 €</td>
             </tr>
-            <!-- weitere Gerichte hier einfügen -->
           </tbody>
         </table>
       </div>
@@ -80,7 +109,6 @@
               <td>Gemischter Salat</td>
               <td>6,50 €</td>
             </tr>
-            <!-- weitere Gerichte hier einfügen -->
           </tbody>
         </table>
       </div>
@@ -118,17 +146,15 @@
       <div class="kontakt-grid">
         <div class="kontakt-info">
           <p>
-            <strong>Polats Kebaphaus
-            </strong><br>
+            <strong>Polats Kebaphaus</strong><br>
             Hauptstraße 47<br>
             61209 Echzell
           </p>
           <p>
-            <a href="tel:+496008-9186688">Tel: 06008 – 918 6688</a><br>
+            <a href="tel:+496008-9186688">Tel: 06008 – 918 6688</a>
           </p>
         </div>
         <div class="map-placeholder">
-          <!-- Google Maps iframe hier einfügen -->
           <iframe
             src="https://www.google.com/maps/embed?pb=DEINE_MAPS_ID"
             width="100%"
@@ -149,10 +175,7 @@
     </div>
   </footer>
 
-</body>
-
-
- <script>
+  <script>
     // Smooth scroll mit Header-Offset
     document.querySelectorAll('a[href^="#"]').forEach(function(link) {
       link.addEventListener('click', function(e) {
@@ -167,5 +190,18 @@
         });
       });
     });
+
+    // Slider – läuft sobald DOM bereit ist, kein Warten auf Bildladen nötig
+    // weil <img> Tags das erste Bild sofort rendern
+    var slidesEl = document.querySelector('.slides');
+    var total = slidesEl.querySelectorAll('li').length;
+    var current = 0;
+
+    setInterval(function() {
+      current = (current + 1) % total;
+      slidesEl.style.transform = 'translateX(-' + (current * 100) + '%)';
+    }, 10000);
   </script>
+
+</body>
 </html>
