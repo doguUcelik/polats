@@ -9,6 +9,22 @@
 </head>
 <body>
 
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner">
+    <div id="cookie-box">
+      <p>
+        Diese Website verwendet Google Maps. Dabei werden Daten (inkl. IP-Adresse)
+        an Google übertragen. Mit Klick auf „Akzeptieren" stimmen Sie dem zu.
+        Weitere Informationen in unserer
+        <a href="#" onclick="openModal('datenschutz'); return false;">Datenschutzerklärung</a>.
+      </p>
+      <div id="cookie-buttons">
+        <button id="cookie-accept">Akzeptieren</button>
+        <button id="cookie-decline">Ablehnen</button>
+      </div>
+    </div>
+  </div>
+
   <!-- HEADER -->
   <header>
     <div class="header-inner">
@@ -155,14 +171,13 @@
           </p>
         </div>
         <div class="map-placeholder">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=DEINE_MAPS_ID"
-            width="100%"
-            height="300"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy">
-          </iframe>
+          <!-- Maps wird nur geladen wenn Nutzer akzeptiert hat -->
+          <div id="map-container">
+            <div id="map-placeholder-text">
+              <p>🗺️ Karte nicht geladen.</p>
+              <p>Bitte akzeptieren Sie die Cookies um Google Maps anzuzeigen.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -171,15 +186,105 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>© 2026 Polats Kebaphaus · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+      <p>© 2026 Polats Kebaphaus ·
+        <a href="#" onclick="openModal('impressum'); return false;">Impressum</a> ·
+        <a href="#" onclick="openModal('datenschutz'); return false;">Datenschutz</a>
+      </p>
     </div>
   </footer>
 
+  <!-- IMPRESSUM MODAL -->
+  <div class="modal" id="modal-impressum">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('impressum')">✕</button>
+      <h2>Impressum</h2>
+      <p><strong>Angaben gemäß § 5 TMG</strong></p>
+      <p>
+        Polat Hüseyin<br>
+        Musterstraße 1<br>
+        12345 Musterstadt
+      </p>
+      <p>
+        <strong>Kontakt</strong><br>
+        Telefon: 06008 – 918 6688
+      </p>
+      <p>
+        <strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong><br>
+        Polat Hüseyin<br>
+        Musterstraße 1<br>
+        12345 Musterstadt
+      </p>
+    </div>
+  </div>
+
+  <!-- DATENSCHUTZ MODAL -->
+  <div class="modal" id="modal-datenschutz">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('datenschutz')">✕</button>
+      <h2>Datenschutzerklärung</h2>
+
+      <h3>1. Verantwortlicher</h3>
+      <p>
+        Polat Hüseyin<br>
+        Musterstraße 1<br>
+        12345 Musterstadt<br>
+        Telefon: 06008 – 918 6688
+      </p>
+
+      <h3>2. Hosting</h3>
+      <p>Diese Website wird über GitHub Pages (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) gehostet. Beim Aufruf der Website wird Ihre IP-Adresse an GitHub übertragen. Weitere Informationen finden Sie in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank">Datenschutzerklärung von GitHub</a>.</p>
+
+      <h3>3. Google Maps</h3>
+      <p>Diese Website verwendet Google Maps (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). Google Maps wird nur nach Ihrer ausdrücklichen Einwilligung (Cookie-Banner) geladen. Dabei wird Ihre IP-Adresse an Google übertragen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Weitere Informationen finden Sie in der <a href="https://policies.google.com/privacy" target="_blank">Datenschutzerklärung von Google</a>.</p>
+
+      <h3>4. Cookies</h3>
+      <p>Diese Website setzt keine eigenen Tracking- oder Analyse-Cookies. Es wird lediglich Ihre Cookie-Entscheidung (Akzeptieren/Ablehnen) im lokalen Speicher Ihres Browsers gespeichert. Durch die Einbindung von Google Maps können nach Ihrer Einwilligung Cookies durch Google gesetzt werden.</p>
+
+      <h3>5. Ihre Rechte</h3>
+      <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten sowie das Recht auf Datenübertragbarkeit. Wenden Sie sich dazu an die oben genannte Kontaktadresse. Außerdem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</p>
+    </div>
+  </div>
+
   <script>
-    // Smooth scroll mit Header-Offset
+    // ── COOKIE BANNER ──────────────────────────────
+    var banner = document.getElementById('cookie-banner');
+
+    function loadMaps() {
+      var container = document.getElementById('map-container');
+      container.innerHTML = '<iframe src="https://maps.google.com/maps?q=Hauptstra%C3%9Fe+47,+61209+Echzell&output=embed" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>';
+    }
+
+    function hideBanner() {
+      banner.style.opacity = '0';
+      setTimeout(function() { banner.style.display = 'none'; }, 300);
+    }
+
+    // Beim Laden prüfen ob bereits entschieden wurde
+    var cookieChoice = localStorage.getItem('cookie-choice');
+    if (cookieChoice === 'accepted') {
+      banner.style.display = 'none';
+      loadMaps();
+    } else if (cookieChoice === 'declined') {
+      banner.style.display = 'none';
+    }
+
+    document.getElementById('cookie-accept').addEventListener('click', function() {
+      localStorage.setItem('cookie-choice', 'accepted');
+      loadMaps();
+      hideBanner();
+    });
+
+    document.getElementById('cookie-decline').addEventListener('click', function() {
+      localStorage.setItem('cookie-choice', 'declined');
+      hideBanner();
+    });
+
+    // ── SMOOTH SCROLL ──────────────────────────────
     document.querySelectorAll('a[href^="#"]').forEach(function(link) {
       link.addEventListener('click', function(e) {
         var id = link.getAttribute('href');
+        if (id === '#') return;
+        if (link.getAttribute('onclick')) return;
         var target = document.querySelector(id);
         if (!target) return;
         e.preventDefault();
@@ -191,8 +296,7 @@
       });
     });
 
-    // Slider – läuft sobald DOM bereit ist, kein Warten auf Bildladen nötig
-    // weil <img> Tags das erste Bild sofort rendern
+    // ── SLIDER ─────────────────────────────────────
     var slidesEl = document.querySelector('.slides');
     var total = slidesEl.querySelectorAll('li').length;
     var current = 0;
@@ -201,6 +305,35 @@
       current = (current + 1) % total;
       slidesEl.style.transform = 'translateX(-' + (current * 100) + '%)';
     }, 10000);
+
+    // ── MODALS ─────────────────────────────────────
+    function openModal(name) {
+      document.getElementById('modal-' + name).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(name) {
+      document.getElementById('modal-' + name).classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.modal').forEach(function(modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal.active').forEach(function(m) {
+          m.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+    });
   </script>
 
 </body>

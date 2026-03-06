@@ -306,3 +306,212 @@ footer a:hover { color: #fff; }
 
   .header-inner { gap: 1rem; }
 }
+
+/* ============================================
+   MODAL (Impressum / Datenschutz)
+   ============================================ */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+  padding: 2rem 1rem;
+  overflow-y: auto;
+}
+
+.modal.active {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  max-width: 640px;
+  width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+.modal-box h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+  color: var(--dark);
+}
+
+.modal-box h3 {
+  font-size: 1rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.4rem;
+  color: var(--dark);
+  font-family: Arial, sans-serif;
+}
+
+.modal-box p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--muted);
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+}
+
+.modal-close:hover {
+  color: var(--dark);
+}
+
+/* ============================================
+   COOKIE BANNER
+   ============================================ */
+#cookie-banner {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 2000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1rem;
+  transition: opacity 0.3s;
+}
+
+#cookie-box {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  max-width: 640px;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+#cookie-box p { margin-bottom: 1rem; }
+
+#cookie-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+#cookie-accept {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#cookie-accept:hover { background: var(--red-dark); }
+
+#cookie-decline {
+  background: transparent;
+  color: var(--muted);
+  border: 2px solid #ddd;
+  padding: 0.6rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+#cookie-decline:hover { border-color: var(--muted); color: var(--dark); }
+
+/* Platzhalter wenn Maps nicht geladen */
+#map-placeholder-text {
+  background: var(--warm-bg);
+  border-radius: var(--radius);
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  gap: 0.5rem;
+}
+
+/* ============================================
+   MODAL (Impressum / Datenschutz)
+   ============================================ */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+  padding: 2rem 1rem;
+  overflow-y: auto;
+}
+
+.modal.active {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  max-width: 640px;
+  width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+.modal-box h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+  color: var(--dark);
+}
+
+.modal-box h3 {
+  font-size: 1rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.4rem;
+  color: var(--dark);
+  font-family: Arial, sans-serif;
+}
+
+.modal-box p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--muted);
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+}
+
+.modal-close:hover { color: var(--dark); }
