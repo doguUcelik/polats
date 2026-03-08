@@ -1,6 +1,3 @@
-/* ============================================
-   VARIABLEN & RESET
-   ============================================ */
 :root {
   --red: #F5921E;
   --red-dark: #d97d10;
@@ -57,6 +54,27 @@ header {
   z-index: 100;
 }
 
+.header-top {
+  background: var(--red);
+  padding: 0.4rem 0;
+}
+
+.header-top-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-top span {
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
 .header-inner {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -71,28 +89,28 @@ header {
   font-weight: bold;
   color: var(--red);
   white-space: nowrap;
-  margin-right: auto;
 }
 
 .tel-btn {
   color: var(--red);
-  font-family: Arial, sans-serif;
-  font-size: 0.9rem;
-  font-weight: bold;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
   white-space: nowrap;
-  border: 2px solid var(--red);
-  padding: 0.4rem 1rem;
-  border-radius: var(--radius);
-  transition: background 0.2s, color 0.2s;
+  border: none;
+  padding: 0;
+  background: none;
+  transition: opacity 0.2s;
 }
 
 .tel-btn:hover {
-  background: var(--red);
-  color: #fff;
+  opacity: 0.8;
   text-decoration: none;
+  background: none;
+  color: var(--red);
 }
 
-nav { display: flex; gap: 1.5rem; }
+nav { display: flex; gap: 1.5rem; margin-left: auto; }
 
 nav a {
   color: var(--dark);
@@ -100,6 +118,7 @@ nav a {
   font-size: 0.9rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  text-align: center;
 }
 
 nav a:hover { color: var(--red); text-decoration: none; }
@@ -515,3 +534,90 @@ footer a:hover { color: #fff; }
 }
 
 .modal-close:hover { color: var(--dark); }
+
+/* ============================================
+   SPEISEKARTE KACHELN
+   ============================================ */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.menu-tile {
+  cursor: pointer;
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.menu-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.menu-tile.active {
+  outline: 3px solid var(--red);
+}
+
+.menu-tile img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.menu-tile-label {
+  background: var(--red);
+  color: #fff;
+  text-align: center;
+  padding: 0.75rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+/* ============================================
+   AUFKLAPPBARE TABELLEN
+   ============================================ */
+.menu-table-wrap {
+  display: none;
+  margin-top: 1.5rem;
+  border-top: 3px solid var(--red);
+  padding-top: 1.5rem;
+}
+
+.menu-table-wrap.open {
+  display: block;
+}
+
+.menu-table-wrap h3 {
+  font-size: 1.3rem;
+  color: var(--red);
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 700px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
