@@ -1,10 +1,14 @@
+
+Index · HTML
+Kopieren
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Polats Kebap Haus</title>
-  <meta name="description" content="Dönerliebe mit jedem Biss!">
+  <title>Polats Kebaphaus – Döner in Echzell</title>
+  <meta name="description" content="Polats Kebaphaus in Echzell – Döner, Dürüm, Lahmacun und mehr. Jetzt vorbeikommen!">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,7 +44,17 @@
         <a href="#oeffnungszeiten">Öffnungszeiten</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="#speisekarte" onclick="closeMobileNav()">Speisekarte</a>
+      <a href="#oeffnungszeiten" onclick="closeMobileNav()">Öffnungszeiten</a>
+      <a href="#kontakt" onclick="closeMobileNav()">Kontakt</a>
+    </nav>
   </header>
 
   <!-- HERO SLIDER -->
@@ -90,42 +104,33 @@
         ↓ Speisekarte als PDF herunterladen
       </a>
 
-      <!-- KATEGORIE KACHELN -->
       <div class="menu-grid">
-
         <div class="menu-tile" onclick="toggleCategory('doener')">
           <img src="bilder/bild4.jpeg" alt="Döner">
           <div class="menu-tile-label">DÖNER</div>
         </div>
-
         <div class="menu-tile" onclick="toggleCategory('salate')">
           <img src="bilder/bild28.jpeg" alt="Salate">
           <div class="menu-tile-label">SALATE</div>
         </div>
-
         <div class="menu-tile" onclick="toggleCategory('pizza')">
           <img src="bilder/bild20.jpeg" alt="Pizza">
           <div class="menu-tile-label">PIZZA</div>
         </div>
-
         <div class="menu-tile" onclick="toggleCategory('schnitzel')">
           <img src="bilder/bild22.jpeg" alt="Schnitzel">
           <div class="menu-tile-label">SCHNITZEL</div>
         </div>
-
         <div class="menu-tile" onclick="toggleCategory('nudeln')">
           <img src="bilder/bild6.jpeg" alt="Nudeln">
           <div class="menu-tile-label">NUDELN</div>
         </div>
-
         <div class="menu-tile" onclick="toggleCategory('specials')">
           <img src="bilder/bild26.jpeg" alt="Specials">
           <div class="menu-tile-label">SPECIALS</div>
         </div>
-
       </div>
 
-      <!-- DÖNER TABELLE -->
       <div class="menu-table-wrap" id="cat-doener">
         <h3>Döner</h3>
         <table>
@@ -134,67 +139,56 @@
             <tr><td>Döner im Fladenbrot</td><td>–</td><td>7,50 €</td></tr>
             <tr><td>Dürüm (Dönerrolle)</td><td>–</td><td>8,50 €</td></tr>
             <tr><td>Lahmacun (gerollte Türkische Pizza)</td><td>–</td><td>9,00 €</td></tr>
-            <!-- weitere Gerichte hier einfügen -->
           </tbody>
         </table>
       </div>
 
-      <!-- SALATE TABELLE -->
       <div class="menu-table-wrap" id="cat-salate">
         <h3>Salate</h3>
         <table>
           <thead><tr><th>Gericht</th><th>Klein</th><th>Normal</th></tr></thead>
           <tbody>
             <tr><td>Gemischter Salat</td><td>–</td><td>6,50 €</td></tr>
-            <!-- weitere Gerichte hier einfügen -->
           </tbody>
         </table>
       </div>
 
-      <!-- PIZZA TABELLE -->
       <div class="menu-table-wrap" id="cat-pizza">
         <h3>Pizza</h3>
         <table>
           <thead><tr><th>Gericht</th><th>Klein</th><th>Normal</th></tr></thead>
           <tbody>
             <tr><td>Pizza Margherita</td><td>– €</td><td>– €</td></tr>
-            <!-- weitere Gerichte hier einfügen -->
           </tbody>
         </table>
       </div>
 
-      <!-- SCHNITZEL TABELLE -->
       <div class="menu-table-wrap" id="cat-schnitzel">
         <h3>Schnitzel</h3>
         <table>
           <thead><tr><th>Gericht</th><th>Klein</th><th>Normal</th></tr></thead>
           <tbody>
             <tr><td>Schnitzel Wiener Art</td><td>–</td><td>– €</td></tr>
-            <!-- weitere Gerichte hier einfügen -->
           </tbody>
         </table>
       </div>
 
-      <!-- NUDELN TABELLE -->
       <div class="menu-table-wrap" id="cat-nudeln">
         <h3>Nudeln</h3>
         <table>
           <thead><tr><th>Gericht</th><th>Klein</th><th>Normal</th></tr></thead>
           <tbody>
             <tr><td>Spaghetti Bolognese</td><td>–</td><td>– €</td></tr>
-            <!-- weitere Gerichte hier einfügen -->
           </tbody>
         </table>
       </div>
 
-      <!-- SPECIALS TABELLE -->
       <div class="menu-table-wrap" id="cat-specials">
         <h3>Specials</h3>
         <table>
           <thead><tr><th>Gericht</th><th>Klein</th><th>Normal</th></tr></thead>
           <tbody>
             <tr><td>Chicken Nuggets (9 Stück)</td><td>–</td><td>– €</td></tr>
-            <!-- weitere Gerichte hier einfügen -->
           </tbody>
         </table>
       </div>
@@ -208,18 +202,9 @@
       <h2>Öffnungszeiten</h2>
       <table class="hours-table">
         <tbody>
-          <tr>
-            <th>Montag</th>
-            <td>Ruhetag</td>
-          </tr>
-          <tr>
-            <th>Dienstag – Samstag</th>
-            <td>11:30 – 21:00 Uhr</td>
-          </tr>
-          <tr>
-            <th>Sonntag</th>
-            <td>12:00 – 21:00 Uhr</td>
-          </tr>
+          <tr><th>Montag</th><td>Ruhetag</td></tr>
+          <tr><th>Dienstag – Samstag</th><td>11:30 – 21:00 Uhr</td></tr>
+          <tr><th>Sonntag</th><td>12:00 – 21:00 Uhr</td></tr>
         </tbody>
       </table>
     </div>
@@ -232,16 +217,13 @@
       <div class="kontakt-grid">
         <div class="kontakt-info">
           <p>
-            <strong>Polats Kebaphaus</strong><br>
+            <strong>Polats Kebaphaus</strong>
             Hauptstraße 47<br>
             61209 Echzell
           </p>
-          <p>
-            <a href="tel:+496008-9186688">Tel: 06008 – 918 6688</a>
-          </p>
+          <p><a href="tel:+496008-9186688">Tel: 06008 – 918 6688</a></p>
         </div>
         <div class="map-placeholder">
-          <!-- Maps wird nur geladen wenn Nutzer akzeptiert hat -->
           <div id="map-container">
             <div id="map-placeholder-text">
               <p>🗺️ Karte nicht geladen.</p>
@@ -268,11 +250,11 @@
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('impressum')">✕</button>
       <h2>Impressum</h2>
-      <p><strong>Angaben gemäß § 5 TMG</strong></p>
+      <p><strong>Angaben gemäß § 5 DDG</strong></p>
       <p>
-        Polat Hüseyin<br>
-        Musterstraße 1<br>
-        12345 Musterstadt
+        Hüseyin Polat<br>
+        Am Sportplatz 4<br>
+        61203 Reichelsheim
       </p>
       <p>
         <strong>Kontakt</strong><br>
@@ -280,9 +262,9 @@
       </p>
       <p>
         <strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong><br>
-        Polat Hüseyin<br>
-        Musterstraße 1<br>
-        12345 Musterstadt
+        Hüseyin Polat<br>
+        Am Sportplatz 4<br>
+        61203 Reichelsheim
       </p>
     </div>
   </div>
@@ -295,14 +277,14 @@
 
       <h3>1. Verantwortlicher</h3>
       <p>
-        Polat Hüseyin<br>
-        Musterstraße 1<br>
-        12345 Musterstadt<br>
+        Hüseyin Polat<br>
+        Am Sportplatz 4<br>
+        61203 Reichelsheim<br>
         Telefon: 06008 – 918 6688
       </p>
 
       <h3>2. Hosting</h3>
-      <p>Diese Website wird über GitHub Pages (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) gehostet. Beim Aufruf der Website wird Ihre IP-Adresse an GitHub übertragen. Weitere Informationen finden Sie in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank">Datenschutzerklärung von GitHub</a>.</p>
+      <p>Diese Website wird über Hetzner Online GmbH (Industriestr. 25, 91710 Gunzenhausen, Deutschland) gehostet. Beim Aufruf der Website wird Ihre IP-Adresse an Hetzner übertragen. Weitere Informationen finden Sie in der <a href="https://www.hetzner.com/de/legal/privacy-policy" target="_blank">Datenschutzerklärung von Hetzner</a>.</p>
 
       <h3>3. Google Maps</h3>
       <p>Diese Website verwendet Google Maps (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). Google Maps wird nur nach Ihrer ausdrücklichen Einwilligung (Cookie-Banner) geladen. Dabei wird Ihre IP-Adresse an Google übertragen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Weitere Informationen finden Sie in der <a href="https://policies.google.com/privacy" target="_blank">Datenschutzerklärung von Google</a>.</p>
@@ -311,7 +293,7 @@
       <p>Diese Website setzt keine eigenen Tracking- oder Analyse-Cookies. Es wird lediglich Ihre Cookie-Entscheidung (Akzeptieren/Ablehnen) im lokalen Speicher Ihres Browsers gespeichert. Durch die Einbindung von Google Maps können nach Ihrer Einwilligung Cookies durch Google gesetzt werden.</p>
 
       <h3>5. Ihre Rechte</h3>
-      <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten sowie das Recht auf Datenübertragbarkeit. Wenden Sie sich dazu an die oben genannte Kontaktadresse. Außerdem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</p>
+      <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten sowie das Recht auf Datenübertragbarkeit. Wenden Sie sich dazu an die oben genannte Kontaktadresse. Außerdem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (zuständig: Hessischer Beauftragter für Datenschutz und Informationsfreiheit, HBDI).</p>
     </div>
   </div>
 
@@ -329,19 +311,13 @@
       setTimeout(function() { banner.style.display = 'none'; }, 300);
     }
 
-    // Beim Laden prüfen ob bereits entschieden wurde
     var cookieChoice = localStorage.getItem('cookie-choice');
-    if (cookieChoice === 'accepted') {
-      banner.style.display = 'none';
-      loadMaps();
-    } else if (cookieChoice === 'declined') {
-      banner.style.display = 'none';
-    }
+    if (cookieChoice === 'accepted') { banner.style.display = 'none'; loadMaps(); }
+    else if (cookieChoice === 'declined') { banner.style.display = 'none'; }
 
     document.getElementById('cookie-accept').addEventListener('click', function() {
       localStorage.setItem('cookie-choice', 'accepted');
-      loadMaps();
-      hideBanner();
+      loadMaps(); hideBanner();
     });
 
     document.getElementById('cookie-decline').addEventListener('click', function() {
@@ -349,34 +325,32 @@
       hideBanner();
     });
 
+    // ── HAMBURGER MENÜ ─────────────────────────────
+    var hamburger = document.getElementById('hamburger');
+    var mobileNav = document.getElementById('mobile-nav');
+
+    hamburger.addEventListener('click', function() {
+      mobileNav.classList.toggle('open');
+    });
+
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+    }
+
     // ── KATEGORIE TOGGLE ───────────────────────────
     function toggleCategory(name) {
       var el = document.getElementById('cat-' + name);
       var isOpen = el.classList.contains('open');
-      // Alle schließen
-      document.querySelectorAll('.menu-table-wrap').forEach(function(w) {
-        w.classList.remove('open');
-      });
-      document.querySelectorAll('.menu-tile').forEach(function(t) {
-        t.classList.remove('active');
-      });
-      // Angeklickte öffnen (außer sie war schon offen)
+      document.querySelectorAll('.menu-table-wrap').forEach(function(w) { w.classList.remove('open'); });
+      document.querySelectorAll('.menu-tile').forEach(function(t) { t.classList.remove('active'); });
       if (!isOpen) {
         el.classList.add('open');
-        // Zugehörige Kachel markieren
-        var tiles = document.querySelectorAll('.menu-tile');
-        tiles.forEach(function(t) {
-          if (t.getAttribute('onclick').includes(name)) {
-            t.classList.add('active');
-          }
+        document.querySelectorAll('.menu-tile').forEach(function(t) {
+          if (t.getAttribute('onclick').includes(name)) t.classList.add('active');
         });
-        // Sanft zur Tabelle scrollen
         setTimeout(function() {
           var headerHeight = document.querySelector('header').offsetHeight;
-          window.scrollTo({
-            top: el.offsetTop - headerHeight - 20,
-            behavior: 'smooth'
-          });
+          window.scrollTo({ top: el.offsetTop - headerHeight - 20, behavior: 'smooth' });
         }, 50);
       }
     }
@@ -391,10 +365,7 @@
         if (!target) return;
         e.preventDefault();
         var headerHeight = document.querySelector('header').offsetHeight;
-        window.scrollTo({
-          top: target.offsetTop - headerHeight,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: target.offsetTop - headerHeight, behavior: 'smooth' });
       });
     });
 
@@ -421,18 +392,14 @@
 
     document.querySelectorAll('.modal').forEach(function(modal) {
       modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-          modal.classList.remove('active');
-          document.body.style.overflow = '';
-        }
+        if (e.target === modal) { modal.classList.remove('active'); document.body.style.overflow = ''; }
       });
     });
 
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         document.querySelectorAll('.modal.active').forEach(function(m) {
-          m.classList.remove('active');
-          document.body.style.overflow = '';
+          m.classList.remove('active'); document.body.style.overflow = '';
         });
       }
     });
