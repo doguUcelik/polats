@@ -189,6 +189,56 @@
         </table>
       </div>
 
+      <!-- ALLERGENE & ZUSATZSTOFFE -->
+      <div class="allergen-box">
+        <h3>Zusatzstoffe & Allergene</h3>
+        <div class="allergen-grid">
+          <div>
+            <strong>Zusatzstoffe</strong>
+            <ul>
+              <li><span>1</span> mit Phosphat</li>
+              <li><span>2</span> mit Geschmacksverstärker</li>
+              <li><span>3</span> mit Farbstoff</li>
+              <li><span>4</span> mit Konservierungsstoff</li>
+              <li><span>5</span> mit Antioxidationsmittel</li>
+              <li><span>6</span> mit Soja</li>
+              <li><span>7</span> mit jodiertem Speisesalz</li>
+            </ul>
+          </div>
+          <div>
+            <strong>Allergene</strong>
+            <ul>
+              <li><span>a</span> glutenhaltiges Getreide (Weizen)</li>
+              <li><span>b</span> Milch und daraus gewonnene Erzeugnisse</li>
+              <li><span>c</span> Ei</li>
+              <li><span>d</span> Fisch und daraus gewonnene Erzeugnisse</li>
+              <li><span>f</span> Sulfit</li>
+              <li><span>g</span> Senf</li>
+              <li><span>h</span> Soja</li>
+              <li><span>i</span> Spuren von Senf, Sellerie, Sesam, Gluten</li>
+              <li><span>j</span> Sesam</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BELIEBTESTE GERICHTE -->
+  <section id="beliebt" class="bg-warm">
+    <div class="container">
+      <h2>Beliebteste Gerichte</h2>
+      <table>
+        <thead><tr><th>Gericht</th><th>Beschreibung</th><th>Preis</th></tr></thead>
+        <tbody>
+          <tr><td>Döner im Fladenbrot</td><td>mit Salat und Soße</td><td>7,50 €</td></tr>
+          <tr><td>Dürüm (Dönerrolle)</td><td>mit Fleisch, Salat und Soße</td><td>8,50 €</td></tr>
+          <tr><td>Lahmacun</td><td>gerollte Türkische Pizza mit Salat und Soße</td><td>9,00 €</td></tr>
+          <tr><td>Gemischter Salat</td><td>frisch zubereitet</td><td>6,50 €</td></tr>
+          <tr><td>Spaghetti Bolognese</td><td>mit Hackfleischsoße</td><td>– €</td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
@@ -196,13 +246,28 @@
   <section id="oeffnungszeiten" class="bg-warm">
     <div class="container">
       <h2>Öffnungszeiten</h2>
-      <table class="hours-table">
-        <tbody>
-          <tr><th>Montag</th><td>Ruhetag</td></tr>
-          <tr><th>Dienstag – Samstag</th><td>11:30 – 21:00 Uhr</td></tr>
-          <tr><th>Sonntag</th><td>12:00 – 21:00 Uhr</td></tr>
-        </tbody>
-      </table>
+      <div class="hours-grid">
+        <div>
+          <h3 class="hours-season">März – Oktober</h3>
+          <table class="hours-table">
+            <tbody>
+              <tr><th>Montag</th><td>Ruhetag</td></tr>
+              <tr><th>Dienstag – Samstag</th><td>11:30 – 21:00 Uhr</td></tr>
+              <tr><th>Sonn- und Feiertage</th><td>12:00 – 21:00 Uhr</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3 class="hours-season">November – Februar</h3>
+          <table class="hours-table">
+            <tbody>
+              <tr><th>Montag</th><td>Ruhetag</td></tr>
+              <tr><th>Dienstag – Samstag</th><td>11:30 – 20:00 Uhr</td></tr>
+              <tr><th>Sonn- und Feiertage</th><td>12:00 – 20:00 Uhr</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -233,7 +298,26 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="container">
+    <div class="footer-grid container">
+      <div class="footer-col">
+        <h4>Über uns</h4>
+        <p>Tolles Essen, wie Döner, Dürüm, Lahmacun, Salate, Nudeln, Pizza, Schnitzel u.v.m. in gemütlicher Atmosphäre oder einfach und schnell zum Mitnehmen.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <p>
+          <strong>Polats Kebaphaus</strong><br>
+          Hauptstraße 47<br>
+          61209 Echzell<br><br>
+          <a href="tel:+496008-9186688">📞 06008 – 918 6688</a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Downloads</h4>
+        <p><a href="speisekarte.pdf" download>📄 Speisekarte (PDF)</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
       <p>© 2026 Polats Kebaphaus ·
         <a href="#" onclick="openModal('impressum'); return false;">Impressum</a> ·
         <a href="#" onclick="openModal('datenschutz'); return false;">Datenschutz</a>

@@ -609,3 +609,136 @@ footer a:hover { color: #fff; }
   /* PDF Button */
   .btn-outline { display: block; text-align: center; }
 }
+
+/* ============================================
+   ÖFFNUNGSZEITEN GRID (Sommer/Winter)
+   ============================================ */
+.hours-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.hours-season {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--red);
+  margin-bottom: 0.75rem;
+}
+
+/* ============================================
+   ALLERGENE & ZUSATZSTOFFE
+   ============================================ */
+.allergen-box {
+  margin-top: 2.5rem;
+  background: var(--warm-bg);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.allergen-box h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.allergen-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.allergen-grid strong {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.allergen-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.allergen-grid li {
+  font-size: 0.82rem;
+  color: var(--muted);
+  padding: 0.2rem 0;
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.allergen-grid li span {
+  font-weight: 700;
+  color: var(--dark);
+  min-width: 14px;
+  font-size: 0.8rem;
+}
+
+/* ============================================
+   FOOTER DREI SPALTEN
+   ============================================ */
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.6);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+.footer-col h4 {
+  color: #fff;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.footer-col p {
+  line-height: 1.7;
+  font-size: 0.85rem;
+}
+
+.footer-col a {
+  color: rgba(255,255,255,0.6);
+}
+
+.footer-col a:hover { color: #fff; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  padding: 1rem 1.5rem;
+  font-size: 0.8rem;
+}
+
+.footer-bottom a { color: rgba(255,255,255,0.5); }
+.footer-bottom a:hover { color: #fff; }
+
+/* ============================================
+   RESPONSIVE ERGÄNZUNGEN
+   ============================================ */
+@media (max-width: 700px) {
+  .hours-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .allergen-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 1.25rem; padding-top: 1.75rem; }
+}
